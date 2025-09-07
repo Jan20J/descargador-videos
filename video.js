@@ -55,7 +55,7 @@ async function actualizarCalidades() {
         const formData = new FormData();
         formData.append("url", url);
 
-        const response = await fetch("http://127.0.0.1:8000/info", {
+        const response = await fetch("https://descargador-api-jan.onrender.com/info", {
             method: "POST",
             body: formData,
         });
@@ -114,7 +114,7 @@ async function descargarVideo() {
         formData.append("url", url);
         formData.append("format_id", format_id);
 
-        const response = await fetch("http://127.0.0.1:8000/download", {
+        const response = await fetch("https://descargador-api-jan.onrender.com/download", {
             method: "POST",
             body: formData,
         });
