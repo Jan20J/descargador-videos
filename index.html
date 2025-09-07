@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Descargador de Videos</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+        .gradient-bg { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .card-hover { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .card-hover:hover { transform: translateY(-5px); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); }
+        button:disabled { background: #9ca3af; cursor: not-allowed; }
+    </style>
+</head>
+<body class="gradient-bg min-h-screen flex items-center justify-center p-4">
+    <div class="max-w-md w-full bg-white rounded-2xl shadow-2xl overflow-hidden card-hover">
+        <div class="bg-gradient-to-r from-pink-500 to-purple-600 p-6 text-center">
+            <div class="flex items-center justify-center mb-4">
+                <i class="fas fa-video text-white text-4xl mr-3"></i>
+                <h1 class="text-2xl font-bold text-white">Descargador de Videos</h1>
+            </div>
+            <p class="text-pink-100">Descarga videos de TikTok, Instagram y más</p>
+        </div>
+
+        <div class="p-6">
+            <div class="mb-6">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="platform">
+                    <i class="fas fa-globe mr-2"></i>Plataforma
+                </label>
+                <select id="platform" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent">
+                    <option value="">Selecciona una plataforma</option>
+                    <option value="tiktok">TikTok</option>
+                    <option value="instagram">Instagram</option>
+                    <option value="youtube">YouTube</option>
+                    <option value="facebook">Facebook</option>
+                    <option value="twitter">Twitter</option>
+                </select>
+            </div>
+
+            <div class="mb-6">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="url">
+                    <i class="fas fa-link mr-2"></i>URL del video
+                </label>
+                <div class="flex">
+                    <input type="url" id="url" placeholder="https://..." class="w-full px-4 py-3 border border-gray-300 rounded-l-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition duration-200" />
+                    <button id="getInfoBtn" onclick="actualizarCalidades()" class="bg-purple-600 text-white px-4 rounded-r-lg hover:bg-purple-700 transition">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="mb-6">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="quality">
+                    <i class="fas fa-sliders-h mr-2"></i>Calidad del video
+                </label>
+                <select id="quality" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent">
+                    <option value="">Busca una URL para ver las calidades</option>
+                </select>
+            </div>
+
+            <button id="downloadBtn" onclick="descargarVideo()" class="w-full bg-gradient-to-r from-pink-500 to-purple-600 text-white py-3 px-4 rounded-lg font-bold hover:from-pink-600 hover:to-purple-700 transition duration-200 transform hover:scale-105">
+                <i class="fas fa-download mr-2"></i>Descargar Video
+            </button>
+            
+            <div id="resultMessage" class="hidden mt-4 p-4 rounded-lg text-center"></div>
+        </div>
+    </div>
+    
+    <script src="video.js"></script>
+</body>
+</html>
